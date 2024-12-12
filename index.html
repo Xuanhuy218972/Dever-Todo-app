@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dever ToDo App</title>
+    <link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
+</head>
+<script src="index.js?v=1.0" defer></script>
+
+<body>
+    <div class="container">
+        <h1>Dever ToDo App</h1>
+        <div class="input-container">
+            <input type="text" id="input-field" placeholder="Thêm mới..." />
+            <button id="add-button">Thêm</button>
+        </div>
+        <div class="filter-area">
+            <div>
+                <span>Cấp độ:</span>
+                <button class="filter-button" id="easy">Dễ</button>
+                <button class="filter-button" id="normal">Bình thường</button>
+                <button class="filter-button" id="hard">Khó</button>
+            </div>
+        </div>
+        <div class="filter-section">
+            <div>
+                <label>Lọc</label>
+                <select class="button" id="level-select" onfocus="this.size=4;" onblur="this.size=0;"
+                    onchange="this.size=1; this.blur();">
+                    <option value="cap-do" selected hidden>&#xf2dc; Cấp độ</option>
+                    <option value="easy" id="button1-1">Dễ</option>
+                    <option value="normal" id="button1-2">Bình thường</option>
+                    <option value="hard" id="button1-3">Khó</option>
+                    <option value="all" id="button1-4">Tất Cả</option>
+                </select>
+
+                <select class="button" id="mark-select" onfocus="this.size=3;" onblur="this.size=0;"
+                    onchange="this.size=1; this.blur();">
+                    <option value="danh-dau" selected hidden>&#xf006; Đánh dấu</option>
+                    <option value="danh-dau" id="button2-1">Đánh dấu</option>
+                    <option value="none" id="button2-2">Không</option>
+                    <option value="all" id="button2-3">Tất cả</option>
+                </select>
+                <select class="button" id="sort-select" onfocus="this.size=2;" onblur="this.size=0;"
+                    onchange="this.size=1; this.blur();">
+                    <option value="sap-xep" selected hidden>&#xf0dc; Sắp xếp</option>
+                    <option value="tang-dan" id="button3-1">Tăng dần</option>
+                    <option value="giam-dan" id="button3-2">Giảm dần</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="task-area">
+        <div class="task" id="easy-task" data-status="todo">
+            <input type="checkbox">
+            <span class="con">Mai tôi sẽ làm xong task</span>
+            <div class="star" onclick="toggleStar(this)" data-checked="false">
+                &#xf006;
+            </div>
+        </div>
+        <div class="task" id="normal-task" data-status="todo">
+            <input type="checkbox">
+            <span class="con1">Mai tôi sẽ đi cắt tóc</span>
+            <div class="star" onclick="toggleStar(this)" data-checked="false">
+                &#xf006;
+            </div>
+        </div>
+        <div class="task" id="hard-task" data-status="todo">
+            <input type="checkbox">
+            <span class="con2">Mai tôi sẽ đi nhậu</span>
+            <div class="star" onclick="toggleStar(this)" data-checked="false">
+                &#xf006;
+            </div>
+        </div>
+        <div class="task" id="hard-task-1" data -status="todo">
+            <input type="checkbox">
+            <span class="con2">Mai tôi sẽ hoàn thành báo cáo</span>
+            <div class="star" onclick="toggleStar(this)" data-checked="false">
+                &#xf006;
+            </div>
+        </div>
+
+    </div>
+    </div>
+</body>
+
+</html>
