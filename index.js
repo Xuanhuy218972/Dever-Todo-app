@@ -46,6 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const task = star.closest('.task');
         task.dataset.starred = star.getAttribute('data-checked');
+        applyFilters(); 
     };
 
     const initializeStars = () => {
@@ -83,19 +84,18 @@ document.addEventListener('DOMContentLoaded', () => {
             const order = e.target.value === 'tang-dan' ? 'ascending' : 'descending';
             sortTasks(order);
         });
-    };
 
-    const initializeFilterButtons = () => {
         filterButtons.forEach(button => {
             button.addEventListener('click', () => {
+                levelFilter = button.id;
                 filterButtons.forEach(btn => btn.classList.remove('active'));
                 button.classList.add('active');
+                applyFilters();
             });
         });
     };
-    
+
     initializeStars();
     initializeCheckboxes();
     initializeFilters();
-    initializeFilterButtons();
 });
