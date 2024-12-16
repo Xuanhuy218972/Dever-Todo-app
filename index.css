@@ -1,14 +1,18 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
+    margin: 1%;
+    padding: 1%;
 }
 
 .container {
-    width: 80%;
+    width: 88%;
     margin: auto;
     overflow: hidden;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 1%;
+
 }
 
 h1 {
@@ -26,6 +30,8 @@ h1 {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 4px;
     margin-bottom: 20px;
+    margin-left: 9%;
+    width: 80%;
 }
 
 #input-field {
@@ -34,9 +40,6 @@ h1 {
     padding: 8px 10px;
     font-size: 14px;
     flex: 1;
-}
-
-#input-field::placeholder {
     color: #888;
 }
 
@@ -60,10 +63,11 @@ h1 {
     justify-content: space-between;
     gap: 10px;
     margin-bottom: 30px;
+    margin-left: 10%;
+    width: 80%;
 }
 
 .filter-button {
-    margin-right: 10px;
     cursor: pointer;
     padding: 10px 20px;
     font-weight: bold;
@@ -87,54 +91,45 @@ h1 {
     color: red;
 }
 
-.filter-button:active {
-    background-color: white;
+.filter-button.active {
+    color: white;
 }
 
-.filter-button#easy:active {
+.filter-button#easy.active {
     background-color: rgb(2, 247, 10);
-    color: white;
+    color: #f0f0f0;
 }
 
-.filter-button#normal:active {
-    background-color: yellow;
-    color: white;
+.filter-button#normal.active {
+    background-color: rgb(227, 214, 36);
+    color: #f0f0f0;
 }
 
-.filter-button#hard:active {
+.filter-button#hard.active {
     background-color: red;
-    color: white;
+    color: #f0f0f0;
 }
 
 .filter-section {
-    display: flex;
-    gap: 10px;
-}
-
-.filter-section select {
-    width: auto;
-    padding: 5px 10px;
-    font-size: 14px;
-    white-space: nowrap;
-    min-width: 0;
-}
-
-.filter-section option {
-    padding: 5px 10px;
-    font-size: 14px;
+    margin-left: 10%;
+    width: 80%;
 }
 
 .button {
-    padding: 5px 10px;
-    border: 1px solid #ccc;
-    border-radius: 20px;
+    padding: 5px 5px;
+    border: 1px solid rgba(200, 200, 200, 0.5);
+    transition: all 0.3s ease;
+    border-radius: 18px;
     background-color: #f0f0f0;
     color: #2196F3;
     font-family: 'FontAwesome';
-    font-size: 12px;
+    font-size: 14px;
     cursor: pointer;
-    position: relative;
-    padding-left: 25px;
+}
+
+select.button option {
+    border-top: solid gray;
+    padding: 8px 10px;
 }
 
 option#button1-1:hover {
@@ -246,16 +241,22 @@ option#button3-2 {
 }
 
 .task-area {
-    margin-top: 20px;
+    background-color: #fff;
+    border-radius: 16px;
+    margin: 20px auto;
+    max-width: 90%;
 }
 
 .task {
-    padding: 10px;
-    margin: 5px 0;
-    border-radius: 5px;
     display: flex;
     align-items: center;
+    margin: 5px;
+    border-radius: 5px;
+    padding: 10px;
+    margin-right: 10%;
+    transition: background-color 0.3s ease;
 }
+
 
 input[type="checkbox"] {
     width: 20px;
@@ -264,7 +265,6 @@ input[type="checkbox"] {
     border: 2px solid #2196F3;
     border-radius: 4px;
     appearance: none;
-    -webkit-appearance: none;
     outline: none;
     position: relative;
 }
@@ -272,7 +272,6 @@ input[type="checkbox"] {
 input[type="checkbox"]:checked {
     border-color: rgb(13, 0, 255);
     background-color: #2196F3;
-    position: relative;
 }
 
 input[type="checkbox"]:checked::after {
@@ -291,8 +290,40 @@ input[type="checkbox"]:checked::after {
 }
 
 .task:hover {
-    background-color: rgb(237, 237, 237);
-    color: rgb(0, 0, 0);
+    background-color: inherit;
+    transition: background-color 0.3s, color 0.3s ease;
+}
+
+.task:hover#easy-task {
+    background-color: rgb(2, 247, 10);
+
+    .con {
+        color: white;
+    }
+}
+
+.task:hover#normal-task {
+    background-color: rgb(227, 214, 36);
+
+    .con1 {
+        color: white;
+    }
+}
+
+.task:hover#hard-task {
+    background-color: red;
+
+    .con2 {
+        color: white;
+    }
+}
+
+.task:hover#hard-task-1 {
+    background-color: red;
+
+    .con2 {
+        color: white;
+    }
 }
 
 .task input[type="checkbox"] {
@@ -327,4 +358,113 @@ input[type="checkbox"]:checked::after {
 
 .star.checked {
     color: #FFD700;
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        padding: 10px;
+    }
+
+    .input-container,
+    .filter-area,
+    .filter-section {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .input-container input {
+        width: calc(100% - 20px);
+        margin-bottom: 10px;
+    }
+
+    #add-button {
+        width: 100%;
+        padding: 10px;
+        text-align: center;
+    }
+
+    .filter-area>div,
+    .filter-section>div {
+        width: 100%;
+    }
+
+    .filter-button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .task {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px;
+        margin: 10px 0;
+        flex-wrap: nowrap;
+    }
+
+    .task input[type="checkbox"] {
+        margin-left: 0;
+        margin-right: 10px;
+        width: 20px;
+        height: 20px;
+    }
+
+    .task span {
+        flex: 1;
+        font-size: 14px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin-right: 10px;
+    }
+
+    .task .star {
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    .button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    select.button {
+        width: calc(100% - 20px);
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    #input-field {
+        font-size: 12px;
+        padding: 5px;
+    }
+
+    #add-button {
+        font-size: 12px;
+    }
+
+    .filter-button {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    .task {
+        padding: 8px;
+    }
+
+    .task span {
+        font-size: 12px;
+    }
+
+    .task .star {
+        font-size: 14px;
+    }
 }
